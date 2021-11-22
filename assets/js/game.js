@@ -17,13 +17,12 @@ var playerInfo = {
     name: getPlayerName(),
     health: 100,
     attack: 10,
-    money: 10
+    money: 10,
     reset: function() {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
-    }
-};
+    },
     refillHealth: function() {
         if (this.money >= 7) {
             window.alert("Refilling player's health by 20 for 7 dollars.");
@@ -33,7 +32,7 @@ var playerInfo = {
         else {
             window.alert("You don't have enough money!");
         }
-    }
+    },
     upgradeAttack: function () {
         if (this.money >= 7) {
             window.alert("Upgrading player's attack by 6 for 7 dollars.");
@@ -43,6 +42,7 @@ var playerInfo = {
         else {
             window.alert("You don't have enough money!");
         }
+    }
 };
 
 var enemyInfo = [
@@ -57,18 +57,19 @@ var enemyInfo = [
     {
         name: "Robo Trumble",
         attack: randomNumber(10,14)
-    },
+    }
 ];
 
 var fightOrSkip = function() {
-    var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.");
+    var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose."); {
 
-    if (promptFight === "skip" || promptFight === "SKIP")
-        var confirmSkip = window.confirm("Are you sure you'd like to quit?");
         if (promptFight === "" || promptFight === null) {
             window.alert("You need to provide a valid answer! Please try again.");
             return fightOrSkip();
         }
+        if (promptFight === "skip" || promptFight === "SKIP")
+        var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
         if (confirmSkip) {
             window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
             // subtract money from playerMoney for skipping
@@ -76,7 +77,7 @@ var fightOrSkip = function() {
             shop();
         }
     }
-}
+};
 
 var fight = function(enemy) {
     // keep track of who goes first
